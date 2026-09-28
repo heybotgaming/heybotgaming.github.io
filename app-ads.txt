@@ -1,0 +1,7 @@
+# app-ads.txt for You Bored? (HeyBot Gaming)
+# PLACEHOLDER: the AdMob publisher ID has not been added yet.
+# When the AdMob account is ready, replace pub-0000000000000000 below with the real publisher ID
+# (AdMob > Settings > Account information), or paste the exact line shown in AdMob > Apps > app-ads.txt.
+# Keep this file at the site root, served as plain text: https://<your-site>/app-ads.txt
+# f08c47fec0942fa0 is Google's certification authority ID. Keep it as is.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

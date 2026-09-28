@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>You Bored? | 79 Tiny Games. One Rule Each. No Mercy.</title>
+<meta name="description" content="You Bored? packs 79 tiny mini games into one app. Timed ranked challenges, a speed-up gauntlet and endless mode. Plays offline, no wifi needed. Coming soon to iPhone and Android.">
+<meta name="theme-color" content="#0B0B2E">
+<meta name="color-scheme" content="dark">
+<!-- SITE_URL: the social preview tags below need the site's full address. If your GitHub username is not "heybotgaming",
+     replace https://heybotgaming.github.io in this file (and in privacy.html / support.html) with https://YOUR-USERNAME.github.io -->
+<link rel="canonical" href="https://heybotgaming.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="You Bored? by HeyBot Gaming">
+<meta property="og:title" content="You Bored? | 79 tiny games. One rule each. No mercy.">
+<meta property="og:description" content="79 tiny mini games for when you're bored or waiting. Ranked S/A/B/C, offline, no wifi needed. Coming soon to the App Store and Google Play.">
+<meta property="og:url" content="https://heybotgaming.github.io/">
+<meta property="og:image" content="https://heybotgaming.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The You Bored? logo next to three phones showing pixel-art mini games.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You Bored? | 79 tiny games. No mercy.">
+<meta name="twitter:description" content="79 tiny mini games, ranked S/A/B/C. Offline. Coming soon to iPhone and Android.">
+<meta name="twitter:image" content="https://heybotgaming.github.io/og.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/press-start-2p.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/silkscreen-700.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/img/logo.webp" as="image">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"You Bored?","description":"79 tiny mini games with timed ranked challenges, a gauntlet and endless mode. Plays offline.","genre":["Arcade","Casual","Puzzle"],"gamePlatform":["iOS","Android"],"publisher":{"@type":"Organization","name":"HeyBot Gaming","email":"heybotgaming@gmail.com","sameAs":["https://www.youtube.com/@HeyBotcha"]}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="bg-glow" aria-hidden="true"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="scan" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="You Bored? home"><img src="assets/img/logo.webp" width="314" height="189" alt="You Bored?"></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#play">Play</a><a href="#games">Games</a><a href="#modes">Modes</a><a href="#unlock">Unlock</a><a href="support.html">Support</a>
+    </nav>
+    <a class="btn mag" href="#play" data-burst>Try it</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================================================================ HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="chip"><i></i>HeyBot Gaming &middot; Coming soon</span>
+      <div class="logo-stage">
+        <div class="rays" aria-hidden="true"></div>
+        <button class="logo-btn" id="logoBtn" type="button" aria-label="You Bored? logo. Press for confetti.">
+          <img class="logo" id="logo" src="assets/img/logo.webp" width="314" height="189" alt="You Bored?" fetchpriority="high">
+        </button>
+      </div>
+      <h1 class="tagline" id="tagline" data-text="79 TINY GAMES.~ONE RULE EACH.~|NO MERCY.">79 TINY GAMES.<br>ONE RULE EACH.<br><span class="m">NO MERCY.</span></h1>
+      <p class="sub">Stuck in line? Waiting on a ride? Pull out your phone for games that last ten seconds and bruise your pride for ten minutes. Plays offline. No wifi needed.</p>
+      <div class="badges" data-badges></div>
+      <div class="hero-cta">
+        <a class="btn acid big" href="#play" data-burst><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3 1h3v1h2v1h2v1h2v1h2v2h1v2h-1v2h-2v1h-2v1H8v1H6v1H3z"/></svg>Play one right here</a>
+      </div>
+      <ul class="stats">
+        <li><b>79</b>games</li><li><b>7</b>pages</li><li><b>0</b>wifi needed</li>
+      </ul>
+    </div>
+    <div class="phones" id="phones" aria-label="Gameplay clips">
+      <div class="phone p2" aria-hidden="true"><div class="body"><div class="screen"><img data-cycle="b" src="assets/img/screens/helix.webp" alt="" width="270" height="506" loading="lazy"></div></div></div>
+      <div class="phone p1" aria-hidden="true"><div class="body"><div class="screen"><img data-cycle="a" src="assets/img/screens/claw.webp" alt="" width="270" height="506" loading="lazy"></div></div></div>
+      <div class="phone p0"><div class="body"><div class="screen">
+        <video id="heroVid" muted playsinline loop preload="none" poster="assets/clips/road.webp" width="360" height="676" aria-label="Gameplay clip"></video>
+      </div></div><span class="tag"><i></i><span id="nowPlaying">Road Hog</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="tk a"><div class="tk-row" style="--t:90s"><span>TOAST CATCH</span><span>PUDDING PANIC</span><span>BURGER STACK</span><span>PIZZA ORBIT</span><span>SNACK SORT</span><span>CAKE CARVER</span><span>CAKE TOWER</span><span>PAN PONG</span><span>NOODLE NEEDLE</span><span>NOODLE KNOT</span><span>FRIDGE FIT</span><span>SNACK HEIST</span><span>KARATE CHOP</span><span>PUSH-UPS</span><span>PEDAL PANIC</span><span>YEET FEET</span><span>POOL SHARK</span><span>THE BOXER</span><span>SUMO MATCH</span><span>THREE POINT SHOOTOUT</span><span>SPOON RACE</span><span>SKEE TOSS</span><span>DUCK SHOOT</span><span>CLAW GRAB</span><span>ROAD HOG</span><span>SPUD SPRINT</span><span>ALIEN ESCAPE</span><span>LIGHT BIKE</span><span>NUG HOP</span><span>CRAB CROSSING</span><span>PAPER DODGE</span><span>JET BURP</span><span>MAGNET COPTER</span><span>RAIN CHECK</span><span>NOODLE FLAP</span><span>UP UP UP</span><span>BUBBLE TROUBLE</span><span>HOLD THE SNEEZE</span><span>SILENT BUT DEADLY</span><span>WIGGING OUT</span></div><div class="tk-row" style="--t:90s"><span>TOAST CATCH</span><span>PUDDING PANIC</span><span>BURGER STACK</span><span>PIZZA ORBIT</span><span>SNACK SORT</span><span>CAKE CARVER</span><span>CAKE TOWER</span><span>PAN PONG</span><span>NOODLE NEEDLE</span><span>NOODLE KNOT</span><span>FRIDGE FIT</span><span>SNACK HEIST</span><span>KARATE CHOP</span><span>PUSH-UPS</span><span>PEDAL PANIC</span><span>YEET FEET</span><span>POOL SHARK</span><span>THE BOXER</span><span>SUMO MATCH</span><span>THREE POINT SHOOTOUT</span><span>SPOON RACE</span><span>SKEE TOSS</span><span>DUCK SHOOT</span><span>CLAW GRAB</span><span>ROAD HOG</span><span>SPUD SPRINT</span><span>ALIEN ESCAPE</span><span>LIGHT BIKE</span><span>NUG HOP</span><span>CRAB CROSSING</span><span>PAPER DODGE</span><span>JET BURP</span><span>MAGNET COPTER</span><span>RAIN CHECK</span><span>NOODLE FLAP</span><span>UP UP UP</span><span>BUBBLE TROUBLE</span><span>HOLD THE SNEEZE</span><span>SILENT BUT DEADLY</span><span>WIGGING OUT</span></div></div>
+  <div class="tk b"><div class="tk-row" style="--t:100s"><span>HOT POTATO</span><span>LIFT OFF</span><span>FLUSH PANIC</span><span>WAKE THE CATS</span><span>STAMP STAMPEDE</span><span>BEAT BEETS</span><span>SNIP SNACK</span><span>POP PATROL</span><span>SUEDOKU</span><span>SIX LETTER SCANDAL</span><span>SOCK MEMORY</span><span>MIRROR MAYHEM</span><span>DUCK TAX</span><span>ODD BOD</span><span>CUP CONSPIRACY</span><span>ZIP ZILLA</span><span>TUNE THE BOT</span><span>CAT WEIGHER</span><span>ROBO WHACK</span><span>SNACK MERGE</span><span>OFFICE ESCAPE</span><span>LAUNDRY LAUNCH</span><span>SUDS UP</span><span>BOLT BUDDY</span><span>SHOO FLY</span><span>WRAP RAP</span><span>ROOT BEER RUSH</span><span>GALAXY CAT</span><span>SPACE WASTE</span><span>SNACK INVADERS</span><span>BUG SWARM</span><span>PIZZA LANDER</span><span>BURP BREAKER</span><span>HELIX DROP</span><span>COLOR GATE</span><span>FEED THE VOID</span><span>CRUMB TRAIL</span><span>PIANO PANCAKES</span><span>CLUCK SHOT</span></div><div class="tk-row" style="--t:100s"><span>HOT POTATO</span><span>LIFT OFF</span><span>FLUSH PANIC</span><span>WAKE THE CATS</span><span>STAMP STAMPEDE</span><span>BEAT BEETS</span><span>SNIP SNACK</span><span>POP PATROL</span><span>SUEDOKU</span><span>SIX LETTER SCANDAL</span><span>SOCK MEMORY</span><span>MIRROR MAYHEM</span><span>DUCK TAX</span><span>ODD BOD</span><span>CUP CONSPIRACY</span><span>ZIP ZILLA</span><span>TUNE THE BOT</span><span>CAT WEIGHER</span><span>ROBO WHACK</span><span>SNACK MERGE</span><span>OFFICE ESCAPE</span><span>LAUNDRY LAUNCH</span><span>SUDS UP</span><span>BOLT BUDDY</span><span>SHOO FLY</span><span>WRAP RAP</span><span>ROOT BEER RUSH</span><span>GALAXY CAT</span><span>SPACE WASTE</span><span>SNACK INVADERS</span><span>BUG SWARM</span><span>PIZZA LANDER</span><span>BURP BREAKER</span><span>HELIX DROP</span><span>COLOR GATE</span><span>FEED THE VOID</span><span>CRUMB TRAIL</span><span>PIANO PANCAKES</span><span>CLUCK SHOT</span></div></div>
+</div>
+<div class="wrap">
+  <ul class="stickers rv" aria-label="Highlights">
+    <li>No wifi needed</li><li>10-second games</li><li>S &middot; A &middot; B &middot; C ranks</li><li>Hand-drawn 16-bit art</li><li>One thumb</li><li>No account</li>
+  </ul>
+</div>
+
+<!-- ================================================================ PLAY -->
+<section id="play">
+  <div class="wrap play-grid">
+    <div class="rv">
+      <p class="eyebrow">Playable right here</p>
+      <h2 class="h2">Try one.<br><em>Right now.</em></h2>
+      <p class="lede">Every game in You Bored? has one rule and a clock. Here's a tiny one we made just for this page. <b>Ten seconds. Tap the snacks. Never the burnt one.</b></p>
+      <ol class="howto">
+        <li><b>1</b><span>Snacks pop up on the plates. Tap them before they vanish.</span></li>
+        <li><b>2</b><span>Chain five in a row and every snack scores double.</span></li>
+        <li><b>3</b><span>Tap a burnt one and you lose three points and your streak.</span></li>
+      </ol>
+      <div class="ranks" aria-label="Rank targets">
+        <span class="rk"><i style="--c:var(--acid)">S</i>22+</span>
+        <span class="rk"><i style="--c:var(--cyan)">A</i>15+</span>
+        <span class="rk"><i style="--c:var(--mag)">B</i>9+</span>
+        <span class="rk"><i style="--c:#9A97C8">C</i>Everyone else</span>
+      </div>
+      <p class="best">Your best: <b id="bestScore">--</b></p>
+    </div>
+    <div class="cab rv" style="--rd:.1s">
+      <div class="cab-top"><span class="bulbs t"></span><h3>SNACK SNATCH</h3><span class="bulbs b"></span></div>
+      <div class="screen-wrap" id="snackWrap">
+        <canvas id="snack" width="400" height="600" aria-label="Snack Snatch mini-game. Press Space to start, then use keys 1 to 9 to tap the plates."></canvas>
+        <div class="game-ui" id="uiStart"><button class="btn mag big" id="btnStart" type="button">Tap to play</button></div>
+        <div class="game-ui" id="uiEnd" hidden>
+          <a class="btn acid big" href="#get" id="btnGet">Get the full game</a>
+          <button class="btn ghost" id="btnAgain" type="button">Play again</button>
+        </div>
+      </div>
+      <div class="cab-bot">
+        <span class="keys">Tap or keys 1-9</span>
+        <button class="mini" id="btnSound" type="button" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 6h3l4-3v10l-4-3H2z"/><path id="sndWaves" fill="currentColor" d="M11 5h1v1h1v4h-1v1h-1v-1h1V6h-1zM13 3h1v1h1v8h-1v1h-1v-1h1V4h-1z"/></svg><span id="sndLbl">Sound on</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ GAME WALL -->
+<section id="games">
+  <div class="wrap">
+    <div class="wall-head rv">
+      <p class="eyebrow">The whole roster</p>
+      <p class="bigcount" data-count="79" aria-hidden="true">79</p>
+      <h2 class="h2">Games. <span class="m">Pick your poison.</span></h2>
+      <p class="lede">Seven pages of tiny chaos: twists on arcade classics, brain teasers, nerve tests and some deeply unnecessary kitchen emergencies. <b>Flip a card to read its one rule.</b></p>
+    </div>
+    <div class="filters rv" role="group" aria-label="Filter games by page"><button class="fchip" type="button" data-f="0" aria-pressed="true" style="--c:var(--white)"><i></i>All <span>79</span></button><button class="fchip" type="button" data-f="1" aria-pressed="false" style="--c:var(--p1)"><i></i>Kitchen Chaos <span>12</span></button><button class="fchip" type="button" data-f="2" aria-pressed="false" style="--c:var(--p2)"><i></i>Sports &amp; Carnival <span>12</span></button><button class="fchip" type="button" data-f="3" aria-pressed="false" style="--c:var(--p3)"><i></i>Run &amp; Dodge <span>12</span></button><button class="fchip" type="button" data-f="4" aria-pressed="false" style="--c:var(--p4)"><i></i>Nerves Of Steel <span>12</span></button><button class="fchip" type="button" data-f="5" aria-pressed="false" style="--c:var(--p5)"><i></i>Brain Teasers <span>12</span></button><button class="fchip" type="button" data-f="6" aria-pressed="false" style="--c:var(--p6)"><i></i>Odd Jobs <span>7</span></button><button class="fchip" type="button" data-f="7" aria-pressed="false" style="--c:var(--p7)"><i></i>Space &amp; Arcade (add-on) <span>12</span></button></div>
+    <div class="wall-tools rv">
+      <button class="btn ghost" id="btnShuffle" type="button">Shuffle</button>
+      <button class="btn acid" id="btnSurprise" type="button" data-burst>Surprise me</button>
+      <span class="note" id="wallNote" aria-live="polite">Showing all 79</span>
+    </div>
+    <div class="grid" id="wall">
+      <button class="card" type="button" data-p="1" data-i="0" data-id="TOAST" style="--c:var(--p1)" aria-label="Toast Catch. Page 1, Kitchen Chaos. Rule: Tap the lane before the toast hits the floor."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 0%;--dl:-0.00s"></i><span class="nm">TOAST CATCH</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">TOAST CATCH</span><span class="p">Tap the lane before the toast hits the floor.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="1" data-id="PUDDING" style="--c:var(--p1)" aria-label="Pudding Panic. Page 1, Kitchen Chaos. Rule: Slide the tray under every falling pudding."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 0%;--dl:-0.37s"></i><span class="nm">PUDDING PANIC</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">PUDDING PANIC</span><span class="p">Slide the tray under every falling pudding.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="2" data-id="STACK" style="--c:var(--p1)" aria-label="Burger Stack. Page 1, Kitchen Chaos. Rule: Drop each layer square. Overhang gets chopped."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 0%;--dl:-0.74s"></i><span class="nm">BURGER STACK</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">BURGER STACK</span><span class="p">Drop each layer square. Overhang gets chopped.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="3" data-id="PIZZA" style="--c:var(--p1)" aria-label="Pizza Orbit. Page 1, Kitchen Chaos. Rule: Drop toppings on the pizza. They must never touch."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 0%;--dl:-1.11s"></i><span class="nm">PIZZA ORBIT</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">PIZZA ORBIT</span><span class="p">Drop toppings on the pizza. They must never touch.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="4" data-id="SORT" style="--c:var(--p1)" aria-label="Snack Sort. Page 1, Kitchen Chaos. Rule: Drag each snack into the bin of its color."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 0%;--dl:-1.48s"></i><span class="nm">SNACK SORT</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">SNACK SORT</span><span class="p">Drag each snack into the bin of its color.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="5" data-id="SLICE" style="--c:var(--p1)" aria-label="Cake Carver. Page 1, Kitchen Chaos. Rule: Swipe the flying cakes. Never slice a burnt one."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 0%;--dl:-1.85s"></i><span class="nm">CAKE CARVER</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">CAKE CARVER</span><span class="p">Swipe the flying cakes. Never slice a burnt one.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="6" data-id="TOWER" style="--c:var(--p1)" aria-label="Cake Tower. Page 1, Kitchen Chaos. Rule: Drop the swinging layers dead center, or it leans."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 0%;--dl:-2.22s"></i><span class="nm">CAKE TOWER</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">CAKE TOWER</span><span class="p">Drop the swinging layers dead center, or it leans.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="7" data-id="PONG" style="--c:var(--p1)" aria-label="Pan Pong. Page 1, Kitchen Chaos. Rule: Keep the egg up. The pan keeps shrinking."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 0%;--dl:-2.59s"></i><span class="nm">PAN PONG</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">PAN PONG</span><span class="p">Keep the egg up. The pan keeps shrinking.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="8" data-id="THREAD" style="--c:var(--p1)" aria-label="Noodle Needle. Page 1, Kitchen Chaos. Rule: Steer the noodle through every ring."><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 0%;--dl:-2.96s"></i><span class="nm">NOODLE NEEDLE</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">NOODLE NEEDLE</span><span class="p">Steer the noodle through every ring.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="9" data-id="KNOT" style="--c:var(--p1)" aria-label="Noodle Knot. Page 1, Kitchen Chaos. Rule: Drag the dots until no lines cross."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 0%;--dl:-0.13s"></i><span class="nm">NOODLE KNOT</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">NOODLE KNOT</span><span class="p">Drag the dots until no lines cross.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="10" data-id="FIT" style="--c:var(--p1)" aria-label="Fridge Fit. Page 1, Kitchen Chaos. Rule: Pack the fridge perfectly. Nothing clears."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 14.29%;--dl:-0.50s"></i><span class="nm">FRIDGE FIT</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">FRIDGE FIT</span><span class="p">Pack the fridge perfectly. Nothing clears.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="1" data-i="11" data-id="SNEAK" style="--c:var(--p1)" aria-label="Snack Heist. Page 1, Kitchen Chaos. Rule: Steal the snacks. Stay out of the flashlight."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 14.29%;--dl:-0.87s"></i><span class="nm">SNACK HEIST</span></span><span class="face back"><span class="pg">P1 &middot; KITCHEN CHAOS</span><span class="nm">SNACK HEIST</span><span class="p">Steal the snacks. Stay out of the flashlight.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="12" data-id="CHOP" style="--c:var(--p2)" aria-label="Karate Chop. Page 2, Sports &amp; Carnival. Rule: Chop exactly the number shown. Not one more."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 14.29%;--dl:-1.24s"></i><span class="nm">KARATE CHOP</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">KARATE CHOP</span><span class="p">Chop exactly the number shown. Not one more.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="13" data-id="PUSHUP" style="--c:var(--p2)" aria-label="Push-Ups. Page 2, Sports &amp; Carnival. Rule: Alternate left and right. Faster. Faster!"><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 14.29%;--dl:-1.61s"></i><span class="nm">PUSH-UPS</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">PUSH-UPS</span><span class="p">Alternate left and right. Faster. Faster!</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="14" data-id="BIKE" style="--c:var(--p2)" aria-label="Pedal Panic. Page 2, Sports &amp; Carnival. Rule: Pedal left, right, left. Stay above the pace line."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 14.29%;--dl:-1.98s"></i><span class="nm">PEDAL PANIC</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">PEDAL PANIC</span><span class="p">Pedal left, right, left. Stay above the pace line.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="15" data-id="JUMP" style="--c:var(--p2)" aria-label="Yeet Feet. Page 2, Sports &amp; Carnival. Rule: Charge, let go, land on the yellow pad."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 14.29%;--dl:-2.35s"></i><span class="nm">YEET FEET</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">YEET FEET</span><span class="p">Charge, let go, land on the yellow pad.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="16" data-id="POOL" style="--c:var(--p2)" aria-label="Pool Shark. Page 2, Sports &amp; Carnival. Rule: Pull back, bank it, sink it."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 14.29%;--dl:-2.72s"></i><span class="nm">POOL SHARK</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">POOL SHARK</span><span class="p">Pull back, bank it, sink it.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="17" data-id="BOXER" style="--c:var(--p2)" aria-label="The Boxer. Page 2, Sports &amp; Carnival. Rule: Hit the side he isn&#x27;t guarding. Dodge the wind-up."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 14.29%;--dl:-3.09s"></i><span class="nm">THE BOXER</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">THE BOXER</span><span class="p">Hit the side he isn&#x27;t guarding. Dodge the wind-up.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="18" data-id="SUMO" style="--c:var(--p2)" aria-label="Sumo Match. Page 2, Sports &amp; Carnival. Rule: Mash left and right to push him out. Brace!"><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 14.29%;--dl:-0.26s"></i><span class="nm">SUMO MATCH</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">SUMO MATCH</span><span class="p">Mash left and right to push him out. Brace!</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="19" data-id="HOOPS" style="--c:var(--p2)" aria-label="Three Point Shootout. Page 2, Sports &amp; Carnival. Rule: Release in the green. The green keeps shrinking."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 14.29%;--dl:-0.63s"></i><span class="nm">THREE POINT SHOOTOUT</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">THREE POINT SHOOTOUT</span><span class="p">Release in the green. The green keeps shrinking.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="20" data-id="TILT" style="--c:var(--p2)" aria-label="Spoon Race. Page 2, Sports &amp; Carnival. Rule: Tip the spoon. Keep the egg in the bowl."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 28.57%;--dl:-1.00s"></i><span class="nm">SPOON RACE</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">SPOON RACE</span><span class="p">Tip the spoon. Keep the egg in the bowl.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="21" data-id="SKEE" style="--c:var(--p2)" aria-label="Skee Toss. Page 2, Sports &amp; Carnival. Rule: Swipe up to roll. Aim for the 100 hole."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 28.57%;--dl:-1.37s"></i><span class="nm">SKEE TOSS</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">SKEE TOSS</span><span class="p">Swipe up to roll. Aim for the 100 hole.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="22" data-id="COUNT" style="--c:var(--p2)" aria-label="Duck Shoot. Page 2, Sports &amp; Carnival. Rule: Hit the ducks. Leave the wooden decoys alone."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 28.57%;--dl:-1.74s"></i><span class="nm">DUCK SHOOT</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">DUCK SHOOT</span><span class="p">Hit the ducks. Leave the wooden decoys alone.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="2" data-i="23" data-id="CLAW" style="--c:var(--p2)" aria-label="Claw Grab. Page 2, Sports &amp; Carnival. Rule: Drop the claw dead center, or it slips."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 28.57%;--dl:-2.11s"></i><span class="nm">CLAW GRAB</span></span><span class="face back"><span class="pg">P2 &middot; SPORTS &amp; CARNIVAL</span><span class="nm">CLAW GRAB</span><span class="p">Drop the claw dead center, or it slips.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="24" data-id="ROAD" style="--c:var(--p3)" aria-label="Road Hog. Page 3, Run &amp; Dodge. Rule: Weave through traffic. You only get faster."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 28.57%;--dl:-2.48s"></i><span class="nm">ROAD HOG</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">ROAD HOG</span><span class="p">Weave through traffic. You only get faster.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="25" data-id="IDAHO" style="--c:var(--p3)" aria-label="Spud Sprint. Page 3, Run &amp; Dodge. Rule: Jump, switch lanes, slide. The potato is coming."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 28.57%;--dl:-2.85s"></i><span class="nm">SPUD SPRINT</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">SPUD SPRINT</span><span class="p">Jump, switch lanes, slide. The potato is coming.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="26" data-id="ALIEN" style="--c:var(--p3)" aria-label="Alien Escape. Page 3, Run &amp; Dodge. Rule: Run, jump, dive. Something is right behind you."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 28.57%;--dl:-0.02s"></i><span class="nm">ALIEN ESCAPE</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">ALIEN ESCAPE</span><span class="p">Run, jump, dive. Something is right behind you.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="27" data-id="LIGHTBIKE" style="--c:var(--p3)" aria-label="Light Bike. Page 3, Run &amp; Dodge. Rule: Turn hard, cut them off, never hit a wall."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 28.57%;--dl:-0.39s"></i><span class="nm">LIGHT BIKE</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">LIGHT BIKE</span><span class="p">Turn hard, cut them off, never hit a wall.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="28" data-id="HOPPER" style="--c:var(--p3)" aria-label="Nug Hop. Page 3, Run &amp; Dodge. Rule: Hop forward, dodge the cars, ride the logs."><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 28.57%;--dl:-0.76s"></i><span class="nm">NUG HOP</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">NUG HOP</span><span class="p">Hop forward, dodge the cars, ride the logs.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="29" data-id="TRAFFIC" style="--c:var(--p3)" aria-label="Crab Crossing. Page 3, Run &amp; Dodge. Rule: Step only when the next lane is clear."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 28.57%;--dl:-1.13s"></i><span class="nm">CRAB CROSSING</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">CRAB CROSSING</span><span class="p">Step only when the next lane is clear.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="30" data-id="DODGE" style="--c:var(--p3)" aria-label="Paper Dodge. Page 3, Run &amp; Dodge. Rule: Dodge the falling office. Jump the paper planes."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 42.86%;--dl:-1.50s"></i><span class="nm">PAPER DODGE</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">PAPER DODGE</span><span class="p">Dodge the falling office. Jump the paper planes.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="31" data-id="JET" style="--c:var(--p3)" aria-label="Jet Burp. Page 3, Run &amp; Dodge. Rule: Hold to burp upward. Dodge the zappers."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 42.86%;--dl:-1.87s"></i><span class="nm">JET BURP</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">JET BURP</span><span class="p">Hold to burp upward. Dodge the zappers.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="32" data-id="COPTER" style="--c:var(--p3)" aria-label="Magnet Copter. Page 3, Run &amp; Dodge. Rule: Grab beams with the magnet. Heavier is harder."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 42.86%;--dl:-2.24s"></i><span class="nm">MAGNET COPTER</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">MAGNET COPTER</span><span class="p">Grab beams with the magnet. Heavier is harder.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="33" data-id="UMBRELLA" style="--c:var(--p3)" aria-label="Rain Check. Page 3, Run &amp; Dodge. Rule: Keep the umbrella under every drop."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 42.86%;--dl:-2.61s"></i><span class="nm">RAIN CHECK</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">RAIN CHECK</span><span class="p">Keep the umbrella under every drop.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="34" data-id="NOODLE" style="--c:var(--p3)" aria-label="Noodle Flap. Page 3, Run &amp; Dodge. Rule: Tap to flap. Gravity does the rest."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 42.86%;--dl:-2.98s"></i><span class="nm">NOODLE FLAP</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">NOODLE FLAP</span><span class="p">Tap to flap. Gravity does the rest.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="3" data-i="35" data-id="UPUP" style="--c:var(--p3)" aria-label="Up Up Up. Page 3, Run &amp; Dodge. Rule: Bounce ever higher. Cracked pancakes break."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 42.86%;--dl:-0.15s"></i><span class="nm">UP UP UP</span></span><span class="face back"><span class="pg">P3 &middot; RUN &amp; DODGE</span><span class="nm">UP UP UP</span><span class="p">Bounce ever higher. Cracked pancakes break.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="36" data-id="GUM" style="--c:var(--p4)" aria-label="Bubble Trouble. Page 4, Nerves Of Steel. Rule: Blow the bubble. Seal it inside the green ring."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 42.86%;--dl:-0.52s"></i><span class="nm">BUBBLE TROUBLE</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">BUBBLE TROUBLE</span><span class="p">Blow the bubble. Seal it inside the green ring.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="37" data-id="SNEEZE" style="--c:var(--p4)" aria-label="Hold The Sneeze. Page 4, Nerves Of Steel. Rule: Tap ACHOO while the needle is in the green."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 42.86%;--dl:-0.89s"></i><span class="nm">HOLD THE SNEEZE</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">HOLD THE SNEEZE</span><span class="p">Tap ACHOO while the needle is in the green.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="38" data-id="FART" style="--c:var(--p4)" aria-label="Silent But Deadly. Page 4, Nerves Of Steel. Rule: Build the pressure. Let go in the green. Quietly."><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 42.86%;--dl:-1.26s"></i><span class="nm">SILENT BUT DEADLY</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">SILENT BUT DEADLY</span><span class="p">Build the pressure. Let go in the green. Quietly.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="39" data-id="WIG" style="--c:var(--p4)" aria-label="Wigging Out. Page 4, Nerves Of Steel. Rule: Hold and let go to keep the wig on the head."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 42.86%;--dl:-1.63s"></i><span class="nm">WIGGING OUT</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">WIGGING OUT</span><span class="p">Hold and let go to keep the wig on the head.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="40" data-id="HOTPOT" style="--c:var(--p4)" aria-label="Hot Potato. Page 4, Nerves Of Steel. Rule: Pass it to the blue bowl before your hands cook."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 57.14%;--dl:-2.00s"></i><span class="nm">HOT POTATO</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">HOT POTATO</span><span class="p">Pass it to the blue bowl before your hands cook.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="41" data-id="ELEVATOR" style="--c:var(--p4)" aria-label="Lift Off. Page 4, Nerves Of Steel. Rule: Ride up and brake exactly on their floor."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 57.14%;--dl:-2.37s"></i><span class="nm">LIFT OFF</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">LIFT OFF</span><span class="p">Ride up and brake exactly on their floor.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="42" data-id="FLUSH" style="--c:var(--p4)" aria-label="Flush Panic. Page 4, Nerves Of Steel. Rule: Flush the moment it hits the water."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 57.14%;--dl:-2.74s"></i><span class="nm">FLUSH PANIC</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">FLUSH PANIC</span><span class="p">Flush the moment it hits the water.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="43" data-id="BLINK" style="--c:var(--p4)" aria-label="Wake The Cats. Page 4, Nerves Of Steel. Rule: Wake each drowsy cat. Too early startles it."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 57.14%;--dl:-3.11s"></i><span class="nm">WAKE THE CATS</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">WAKE THE CATS</span><span class="p">Wake each drowsy cat. Too early startles it.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="44" data-id="STAMP" style="--c:var(--p4)" aria-label="Stamp Stampede. Page 4, Nerves Of Steel. Rule: Stamp exactly that many. Fast."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 57.14%;--dl:-0.28s"></i><span class="nm">STAMP STAMPEDE</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">STAMP STAMPEDE</span><span class="p">Stamp exactly that many. Fast.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="45" data-id="RHYTHM" style="--c:var(--p4)" aria-label="Beat Beets. Page 4, Nerves Of Steel. Rule: Tap the lane as each beet crosses the line."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 57.14%;--dl:-0.65s"></i><span class="nm">BEAT BEETS</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">BEAT BEETS</span><span class="p">Tap the lane as each beet crosses the line.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="46" data-id="SNIP" style="--c:var(--p4)" aria-label="Snip Snack. Page 4, Nerves Of Steel. Rule: Cut the ropes so the donut lands in the pup."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 57.14%;--dl:-1.02s"></i><span class="nm">SNIP SNACK</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">SNIP SNACK</span><span class="p">Cut the ropes so the donut lands in the pup.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="4" data-i="47" data-id="POPCORN" style="--c:var(--p4)" aria-label="Pop Patrol. Page 4, Nerves Of Steel. Rule: Grab every kernel before it burns."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 57.14%;--dl:-1.39s"></i><span class="nm">POP PATROL</span></span><span class="face back"><span class="pg">P4 &middot; NERVES OF STEEL</span><span class="nm">POP PATROL</span><span class="p">Grab every kernel before it burns.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="48" data-id="SUEDOKU" style="--c:var(--p5)" aria-label="Suedoku. Page 5, Brain Teasers. Rule: One of each in every row, column and box."><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 57.14%;--dl:-1.76s"></i><span class="nm">SUEDOKU</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">SUEDOKU</span><span class="p">One of each in every row, column and box.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="49" data-id="PHRASE" style="--c:var(--p5)" aria-label="Six Letter Scandal. Page 5, Brain Teasers. Rule: Buy a few letters, then guess the phrase."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 57.14%;--dl:-2.13s"></i><span class="nm">SIX LETTER SCANDAL</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">SIX LETTER SCANDAL</span><span class="p">Buy a few letters, then guess the phrase.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="50" data-id="MATCH" style="--c:var(--p5)" aria-label="Sock Memory. Page 5, Brain Teasers. Rule: Flip two socks at a time. Find every pair."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 71.43%;--dl:-2.50s"></i><span class="nm">SOCK MEMORY</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">SOCK MEMORY</span><span class="p">Flip two socks at a time. Find every pair.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="51" data-id="MIRROR" style="--c:var(--p5)" aria-label="Mirror Mayhem. Page 5, Brain Teasers. Rule: SAME or OPPOSITE? Read the rule first."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 71.43%;--dl:-2.87s"></i><span class="nm">MIRROR MAYHEM</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">MIRROR MAYHEM</span><span class="p">SAME or OPPOSITE? Read the rule first.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="52" data-id="TAX" style="--c:var(--p5)" aria-label="Duck Tax. Page 5, Brain Teasers. Rule: Add up the bill plus duck tax. Tap the total."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 71.43%;--dl:-0.04s"></i><span class="nm">DUCK TAX</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">DUCK TAX</span><span class="p">Add up the bill plus duck tax. Tap the total.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="53" data-id="SPOT" style="--c:var(--p5)" aria-label="Odd Bod. Page 5, Brain Teasers. Rule: Everyone matches except one. Find them."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 71.43%;--dl:-0.41s"></i><span class="nm">ODD BOD</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">ODD BOD</span><span class="p">Everyone matches except one. Find them.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="54" data-id="CUP" style="--c:var(--p5)" aria-label="Cup Conspiracy. Page 5, Brain Teasers. Rule: Follow the snack through the shuffle."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 71.43%;--dl:-0.78s"></i><span class="nm">CUP CONSPIRACY</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">CUP CONSPIRACY</span><span class="p">Follow the snack through the shuffle.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="55" data-id="ZIP" style="--c:var(--p5)" aria-label="Zip Zilla. Page 5, Brain Teasers. Rule: Connect them in order. Find the next one yourself."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 71.43%;--dl:-1.15s"></i><span class="nm">ZIP ZILLA</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">ZIP ZILLA</span><span class="p">Connect them in order. Find the next one yourself.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="56" data-id="TUNER" style="--c:var(--p5)" aria-label="Tune The Bot. Page 5, Brain Teasers. Rule: Hold every slider on its mark at once."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 71.43%;--dl:-1.52s"></i><span class="nm">TUNE THE BOT</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">TUNE THE BOT</span><span class="p">Hold every slider on its mark at once.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="57" data-id="WEIGH" style="--c:var(--p5)" aria-label="Cat Weigher. Page 5, Brain Teasers. Rule: Balance the pan to match the cat exactly."><span class="in"><span class="face front"><i class="spr" style="background-position:77.78% 71.43%;--dl:-1.89s"></i><span class="nm">CAT WEIGHER</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">CAT WEIGHER</span><span class="p">Balance the pan to match the cat exactly.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="58" data-id="MEMORY" style="--c:var(--p5)" aria-label="Robo Whack. Page 5, Brain Teasers. Rule: Hit the lit button before it goes dark."><span class="in"><span class="face front"><i class="spr" style="background-position:88.89% 71.43%;--dl:-2.26s"></i><span class="nm">ROBO WHACK</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">ROBO WHACK</span><span class="p">Hit the lit button before it goes dark.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="5" data-i="59" data-id="MERGE" style="--c:var(--p5)" aria-label="Snack Merge. Page 5, Brain Teasers. Rule: Slide matching snacks together to make the next one."><span class="in"><span class="face front"><i class="spr" style="background-position:100% 71.43%;--dl:-2.63s"></i><span class="nm">SNACK MERGE</span></span><span class="face back"><span class="pg">P5 &middot; BRAIN TEASERS</span><span class="nm">SNACK MERGE</span><span class="p">Slide matching snacks together to make the next one.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="60" data-id="ROUTE" style="--c:var(--p6)" aria-label="Office Escape. Page 6, Odd Jobs. Rule: Trace a path to the door. Stay on open tiles."><span class="in"><span class="face front"><i class="spr" style="background-position:0% 85.71%;--dl:-3.00s"></i><span class="nm">OFFICE ESCAPE</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">OFFICE ESCAPE</span><span class="p">Trace a path to the door. Stay on open tiles.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="61" data-id="SOCK" style="--c:var(--p6)" aria-label="Laundry Launch. Page 6, Odd Jobs. Rule: Fling laundry into a basket that won&#x27;t sit still."><span class="in"><span class="face front"><i class="spr" style="background-position:11.11% 85.71%;--dl:-0.17s"></i><span class="nm">LAUNDRY LAUNCH</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">LAUNDRY LAUNCH</span><span class="p">Fling laundry into a basket that won&#x27;t sit still.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="62" data-id="MOP" style="--c:var(--p6)" aria-label="Suds Up. Page 6, Odd Jobs. Rule: Scrub every stain off the table."><span class="in"><span class="face front"><i class="spr" style="background-position:22.22% 85.71%;--dl:-0.54s"></i><span class="nm">SUDS UP</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">SUDS UP</span><span class="p">Scrub every stain off the table.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="63" data-id="MAGNET" style="--c:var(--p6)" aria-label="Bolt Buddy. Page 6, Odd Jobs. Rule: Drag the magnet. Keep the bolt off the saws."><span class="in"><span class="face front"><i class="spr" style="background-position:33.33% 85.71%;--dl:-0.91s"></i><span class="nm">BOLT BUDDY</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">BOLT BUDDY</span><span class="p">Drag the magnet. Keep the bolt off the saws.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="64" data-id="FLY" style="--c:var(--p6)" aria-label="Shoo Fly. Page 6, Odd Jobs. Rule: Flick every fly away from the food."><span class="in"><span class="face front"><i class="spr" style="background-position:44.44% 85.71%;--dl:-1.28s"></i><span class="nm">SHOO FLY</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">SHOO FLY</span><span class="p">Flick every fly away from the food.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="65" data-id="WRAP" style="--c:var(--p6)" aria-label="Wrap Rap. Page 6, Odd Jobs. Rule: Pin the spinning burrito. Never hit a toothpick."><span class="in"><span class="face front"><i class="spr" style="background-position:55.56% 85.71%;--dl:-1.65s"></i><span class="nm">WRAP RAP</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">WRAP RAP</span><span class="p">Pin the spinning burrito. Never hit a toothpick.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="6" data-i="66" data-id="ROOTBEER" style="--c:var(--p6)" aria-label="Root Beer Rush. Page 6, Odd Jobs. Rule: Slide mugs down the bar. Catch the empties."><span class="in"><span class="face front"><i class="spr" style="background-position:66.67% 85.71%;--dl:-2.02s"></i><span class="nm">ROOT BEER RUSH</span></span><span class="face back"><span class="pg">P6 &middot; ODD JOBS</span><span class="nm">ROOT BEER RUSH</span><span class="p">Slide mugs down the bar. Catch the empties.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="67" data-id="GALAXY" style="--c:var(--p7)" aria-label="Galaxy Cat. Page 7, Space &amp; Arcade. Rule: Steer the ship through every ring."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:77.78% 85.71%;--dl:-2.39s"></i><span class="nm">GALAXY CAT</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">GALAXY CAT</span><span class="p">Steer the ship through every ring.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="68" data-id="ASTEROID" style="--c:var(--p7)" aria-label="Space Waste. Page 7, Space &amp; Arcade. Rule: Tap to turn and fire. Big rocks split."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:88.89% 85.71%;--dl:-2.76s"></i><span class="nm">SPACE WASTE</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">SPACE WASTE</span><span class="p">Tap to turn and fire. Big rocks split.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="69" data-id="INVADERS" style="--c:var(--p7)" aria-label="Snack Invaders. Page 7, Space &amp; Arcade. Rule: They march. You blast. One shot at a time."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:100% 85.71%;--dl:-3.13s"></i><span class="nm">SNACK INVADERS</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">SNACK INVADERS</span><span class="p">They march. You blast. One shot at a time.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="70" data-id="SWARM" style="--c:var(--p7)" aria-label="Bug Swarm. Page 7, Space &amp; Arcade. Rule: Blast the swarm before it dives at you."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:0% 100%;--dl:-0.30s"></i><span class="nm">BUG SWARM</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">BUG SWARM</span><span class="p">Blast the swarm before it dives at you.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="71" data-id="LANDER" style="--c:var(--p7)" aria-label="Pizza Lander. Page 7, Space &amp; Arcade. Rule: Touch down slow and level on the pad."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:11.11% 100%;--dl:-0.67s"></i><span class="nm">PIZZA LANDER</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">PIZZA LANDER</span><span class="p">Touch down slow and level on the pad.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="72" data-id="BREAKER" style="--c:var(--p7)" aria-label="Burp Breaker. Page 7, Space &amp; Arcade. Rule: Bounce, break, burp. Catch the power-ups."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:22.22% 100%;--dl:-1.04s"></i><span class="nm">BURP BREAKER</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">BURP BREAKER</span><span class="p">Bounce, break, burp. Catch the power-ups.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="73" data-id="HELIX" style="--c:var(--p7)" aria-label="Helix Drop. Page 7, Space &amp; Arcade. Rule: Spin the tower. Drop the meatball. Avoid red."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:33.33% 100%;--dl:-1.41s"></i><span class="nm">HELIX DROP</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">HELIX DROP</span><span class="p">Spin the tower. Drop the meatball. Avoid red.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="74" data-id="GATE" style="--c:var(--p7)" aria-label="Color Gate. Page 7, Space &amp; Arcade. Rule: Hop only through gates of your own color."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:44.44% 100%;--dl:-1.78s"></i><span class="nm">COLOR GATE</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">COLOR GATE</span><span class="p">Hop only through gates of your own color.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="75" data-id="VOID" style="--c:var(--p7)" aria-label="Feed The Void. Page 7, Space &amp; Arcade. Rule: Pull back and fling meatballs into the void."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:55.56% 100%;--dl:-2.15s"></i><span class="nm">FEED THE VOID</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">FEED THE VOID</span><span class="p">Pull back and fling meatballs into the void.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="76" data-id="MAZESNAKE" style="--c:var(--p7)" aria-label="Crumb Trail. Page 7, Space &amp; Arcade. Rule: Lay crumbs. Lead the pigeon. Avoid the cats."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:66.67% 100%;--dl:-2.52s"></i><span class="nm">CRUMB TRAIL</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">CRUMB TRAIL</span><span class="p">Lay crumbs. Lead the pigeon. Avoid the cats.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="77" data-id="PIANO" style="--c:var(--p7)" aria-label="Piano Pancakes. Page 7, Space &amp; Arcade. Rule: Tap the lowest pancake. Never an empty square."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:77.78% 100%;--dl:-2.89s"></i><span class="nm">PIANO PANCAKES</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">PIANO PANCAKES</span><span class="p">Tap the lowest pancake. Never an empty square.</span><span class="rule">The one rule</span></span></span></button>
+      <button class="card" type="button" data-p="7" data-i="78" data-id="SLING" style="--c:var(--p7)" aria-label="Cluck Shot. Page 7, Space &amp; Arcade. Rule: Fling chickens. Flatten the farm."><span class="in"><span class="face front"><span class="addon">ADD-ON</span><i class="spr" style="background-position:88.89% 100%;--dl:-0.06s"></i><span class="nm">CLUCK SHOT</span></span><span class="face back"><span class="pg">P7 &middot; SPACE &amp; ARCADE</span><span class="nm">CLUCK SHOT</span><span class="p">Fling chickens. Flatten the farm.</span><span class="rule">The one rule</span></span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ REEL -->
+<div class="reel" aria-label="Screenshots">
+  <div class="wrap reel-title rv"><p class="eyebrow">Real screens. Real panic.</p></div>
+  <div class="reel-track">
+    <div class="reel-set"><figure class="shot" style="margin:0"><img src="assets/img/screens/helix.webp" width="270" height="506" loading="lazy" alt="Helix Drop gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/claw.webp" width="270" height="506" loading="lazy" alt="Claw Grab gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/elevator.webp" width="270" height="506" loading="lazy" alt="Lift Off gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/fit.webp" width="270" height="506" loading="lazy" alt="Fridge Fit gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/hoops.webp" width="270" height="506" loading="lazy" alt="Three Point Shootout gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/snip.webp" width="270" height="506" loading="lazy" alt="Snip Snack gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/swarm.webp" width="270" height="506" loading="lazy" alt="Bug Swarm gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/upup.webp" width="270" height="506" loading="lazy" alt="Up Up Up gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/void.webp" width="270" height="506" loading="lazy" alt="Feed The Void gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/weigh.webp" width="270" height="506" loading="lazy" alt="Cat Weigher gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/knot.webp" width="270" height="506" loading="lazy" alt="Noodle Knot gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/mazesnake.webp" width="270" height="506" loading="lazy" alt="Crumb Trail gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/pool.webp" width="270" height="506" loading="lazy" alt="Pool Shark gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/jet.webp" width="270" height="506" loading="lazy" alt="Jet Burp gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/gum.webp" width="270" height="506" loading="lazy" alt="Bubble Trouble gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/cup.webp" width="270" height="506" loading="lazy" alt="Cup Conspiracy gameplay"></figure></div>
+    <div class="reel-set" aria-hidden="true"><figure class="shot" style="margin:0"><img src="assets/img/screens/helix.webp" width="270" height="506" loading="lazy" alt="Helix Drop gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/claw.webp" width="270" height="506" loading="lazy" alt="Claw Grab gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/elevator.webp" width="270" height="506" loading="lazy" alt="Lift Off gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/fit.webp" width="270" height="506" loading="lazy" alt="Fridge Fit gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/hoops.webp" width="270" height="506" loading="lazy" alt="Three Point Shootout gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/snip.webp" width="270" height="506" loading="lazy" alt="Snip Snack gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/swarm.webp" width="270" height="506" loading="lazy" alt="Bug Swarm gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/upup.webp" width="270" height="506" loading="lazy" alt="Up Up Up gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/void.webp" width="270" height="506" loading="lazy" alt="Feed The Void gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/weigh.webp" width="270" height="506" loading="lazy" alt="Cat Weigher gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/knot.webp" width="270" height="506" loading="lazy" alt="Noodle Knot gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/mazesnake.webp" width="270" height="506" loading="lazy" alt="Crumb Trail gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/pool.webp" width="270" height="506" loading="lazy" alt="Pool Shark gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/jet.webp" width="270" height="506" loading="lazy" alt="Jet Burp gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/gum.webp" width="270" height="506" loading="lazy" alt="Bubble Trouble gameplay"></figure><figure class="shot" style="margin:0"><img src="assets/img/screens/cup.webp" width="270" height="506" loading="lazy" alt="Cup Conspiracy gameplay"></figure></div>
+  </div>
+</div>
+
+<!-- ================================================================ MODES -->
+<section id="modes">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">Game modes</p>
+      <h2 class="h2">Three ways to <span class="m">lose your cool.</span></h2>
+    </div>
+    <div class="modes">
+      <article class="mode panel notch rv" style="--c:var(--acid)">
+        <div class="vis" aria-hidden="true">
+          <span class="clock" id="mClock">00:07.42</span>
+          <div class="coin" id="mCoin">S</div>
+          <div class="rk-row" id="mRanks"><span>S</span><span>A</span><span>B</span><span>C</span></div>
+        </div>
+        <h3>Timed challenges</h3>
+        <p>Every game is a race against the clock with a rank at the end: S, A, B or C. Beat your best. Then beat it again, faster.</p>
+        <p class="tagline2">Chase the S on all 79</p>
+      </article>
+      <article class="mode panel notch rv" style="--c:var(--mag);--rd:.08s">
+        <div class="vis" aria-hidden="true">
+          <div class="hearts"><i class="heart"></i><i class="heart"></i><i class="heart"></i></div>
+          <span class="speed" id="gSpeed">SPEED x1.0</span>
+          <div class="deck" id="gDeck"><div class="spr"></div></div>
+          <div class="cmd" id="gCmd">GO!</div>
+        </div>
+        <h3>The Gauntlet</h3>
+        <p>Games come at you shuffled and back to back. Three lives. Every clear speeds things up. How far can you get before your thumbs give out?</p>
+        <p class="tagline2">3 lives &middot; shuffled &middot; speeds up</p>
+      </article>
+      <article class="mode panel notch rv" style="--c:var(--green);--rd:.16s">
+        <div class="vis" aria-hidden="true">
+          <span class="inf">&infin;</span>
+          <span class="round" id="eRound">ROUND 1<br>BEST 24</span>
+          <div class="tower"><div class="col" id="eCol"></div></div>
+        </div>
+        <h3>Endless</h3>
+        <p>No clock. Same rules. Every game just keeps getting harder, round after round, until you crack. Then you go again for a new high score.</p>
+        <p class="tagline2">No clock &middot; no ceiling</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ UNLOCK -->
+<section id="unlock">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">How unlocking works</p>
+      <h2 class="h2">Earn your <em>A</em>'s.<br>Open the next page.</h2>
+      <p class="lede">Page 1 is open from the start. Get an <b>A or better on every game</b> on a page and the next page opens. Pages 2 to 6 are earned with your thumbs. Page 7, <b>Space &amp; Arcade</b>, is an add-on.</p>
+    </div>
+    <div class="steps">
+      <div class="step panel rv"><b>1</b><span>Play a page</span></div>
+      <div class="step panel rv" style="--c:var(--acid);--rd:.08s"><b>A</b><span>Rank <em>A or better</em> on every game</span></div>
+      <div class="step panel rv" style="--c:var(--mag);--rd:.16s"><b>&#9658;</b><span>The next page unlocks</span></div>
+    </div>
+    <div class="track" id="track"><span class="fill" id="trackFill"></span><div class="pnode" style="--c:var(--p1)" data-n="0"><div class="ic"><i class="spr" style="background-position:0% 0%"></i><i class="spr" style="background-position:11.11% 0%"></i><i class="spr" style="background-position:22.22% 0%"></i></div><div class="t">Page 1<br>KITCHEN CHAOS<small>Open from the start</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode" style="--c:var(--p2)" data-n="1"><div class="ic"><i class="spr" style="background-position:22.22% 14.29%"></i><i class="spr" style="background-position:33.33% 14.29%"></i><i class="spr" style="background-position:44.44% 14.29%"></i></div><div class="t">Page 2<br>SPORTS &amp; CARNIVAL<small>A on every game of page 1</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode" style="--c:var(--p3)" data-n="2"><div class="ic"><i class="spr" style="background-position:44.44% 28.57%"></i><i class="spr" style="background-position:55.56% 28.57%"></i><i class="spr" style="background-position:66.67% 28.57%"></i></div><div class="t">Page 3<br>RUN &amp; DODGE<small>A on every game of page 2</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode" style="--c:var(--p4)" data-n="3"><div class="ic"><i class="spr" style="background-position:66.67% 42.86%"></i><i class="spr" style="background-position:77.78% 42.86%"></i><i class="spr" style="background-position:88.89% 42.86%"></i></div><div class="t">Page 4<br>NERVES OF STEEL<small>A on every game of page 3</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode" style="--c:var(--p5)" data-n="4"><div class="ic"><i class="spr" style="background-position:88.89% 57.14%"></i><i class="spr" style="background-position:100% 57.14%"></i><i class="spr" style="background-position:0% 71.43%"></i></div><div class="t">Page 5<br>BRAIN TEASERS<small>A on every game of page 4</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode" style="--c:var(--p6)" data-n="5"><div class="ic"><i class="spr" style="background-position:0% 85.71%"></i><i class="spr" style="background-position:11.11% 85.71%"></i><i class="spr" style="background-position:22.22% 85.71%"></i></div><div class="t">Page 6<br>ODD JOBS<small>A on every game of page 5</small></div><span class="lock" aria-hidden="true"></span><span class="st">OPEN</span></div><div class="pnode addon" style="--c:var(--p7)" data-n="6"><div class="ic"><i class="spr" style="background-position:77.78% 85.71%"></i><i class="spr" style="background-position:88.89% 85.71%"></i><i class="spr" style="background-position:100% 85.71%"></i></div><div class="t">Page 7<br>SPACE &amp; ARCADE<small>Add-on pack or Full Game</small></div><span class="lock" aria-hidden="true"></span><span class="st">ADD-ON</span></div></div>
+    <div class="unlock-foot">
+      <button class="btn ghost" id="btnReplay" type="button">Replay unlocks</button>
+      <p>Can't wait? The Full Game opens every page right away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ PRICING -->
+<section id="get">
+  <div class="wrap">
+    <div class="rv center">
+      <p class="eyebrow">Free to play</p>
+      <h2 class="h2">Play free.<br><em>Unlock everything.</em></h2>
+      <p class="lede">No ads, one-time purchase. No subscriptions, ever.</p>
+    </div>
+    <div class="tiers">
+      <article class="tier free panel rv">
+        <p class="kick">Free download</p>
+        <h3>Play free</h3>
+        <ul>
+          <li>Pages 1 to 6, earned with A ranks</li>
+          <li>Timed challenges, Gauntlet and Endless</li>
+          <li>Short ads between games</li>
+          <li>Optional reward videos: try a locked game once, or grab an extra life</li>
+        </ul>
+        <div class="icons"><i class="spr" style="background-position:0% 0%"></i><i class="spr" style="background-position:22.22% 14.29%"></i><i class="spr" style="background-position:44.44% 28.57%"></i><i class="spr" style="background-position:66.67% 42.86%"></i><i class="spr" style="background-position:88.89% 57.14%"></i><i class="spr" style="background-position:0% 85.71%"></i></div>
+      </article>
+      <article class="tier pack panel rv" style="--rd:.08s">
+        <p class="kick">Add-on pack</p>
+        <h3>Page 7 Pack</h3>
+        <ul>
+          <li>Space &amp; Arcade: 12 more games</li>
+          <li>Blasting, landing and chicken-flinging</li>
+          <li>Yours to keep</li>
+        </ul>
+        <div class="icons"><i class="spr" style="background-position:77.78% 85.71%"></i><i class="spr" style="background-position:88.89% 85.71%"></i><i class="spr" style="background-position:100% 85.71%"></i><i class="spr" style="background-position:0% 100%"></i><i class="spr" style="background-position:11.11% 100%"></i><i class="spr" style="background-position:22.22% 100%"></i><i class="spr" style="background-position:33.33% 100%"></i><i class="spr" style="background-position:44.44% 100%"></i><i class="spr" style="background-position:55.56% 100%"></i><i class="spr" style="background-position:66.67% 100%"></i><i class="spr" style="background-position:77.78% 100%"></i><i class="spr" style="background-position:88.89% 100%"></i></div>
+      </article>
+      <article class="tier full panel rv" style="--rd:.16s">
+        <span class="ribbon">Best deal</span>
+        <div class="crown" aria-hidden="true"></div>
+        <p class="kick">One-time purchase</p>
+        <h3>Full Game</h3>
+        <ul>
+          <li>All 79 games, every page open right now</li>
+          <li>No ads, ever</li>
+          <li>All future updates included</li>
+          <li>Restore on any device with the same store account</li>
+        </ul>
+        <div class="icons"><i class="spr" style="background-position:33.33% 42.86%"></i><i class="spr" style="background-position:77.78% 14.29%"></i><i class="spr" style="background-position:55.56% 0%"></i><i class="spr" style="background-position:11.11% 57.14%"></i><i class="spr" style="background-position:11.11% 71.43%"></i><i class="spr" style="background-position:66.67% 85.71%"></i></div>
+      </article>
+    </div>
+    <p class="fine rv">Prices are shown in the App Store and Google Play. No subscriptions.</p>
+  </div>
+</section>
+
+<!-- ================================================================ SOON -->
+<section class="soon" id="soon">
+  <div class="wrap">
+    <div class="soon-card panel notch rv">
+      <div>
+        <p class="eyebrow">Launch</p>
+        <h2 class="h2">Coming soon<br><em>to your phone.</em></h2>
+        <p class="lede">You Bored? is on its way to the App Store and Google Play. Watch it get made on the HeyBot Gaming YouTube channel, and be first in line when it drops.</p>
+        <div class="badges" data-badges></div>
+        <div class="hero-cta"><a class="btn mag" data-yt href="https://www.youtube.com/@HeyBotcha" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h12v1h1v8h-1v1H2v-1H1V4h1zm4 2v6l5-3z"/></svg>Watch on YouTube</a></div>
+      </div>
+      <div class="art">
+        <img src="assets/img/hero-art.jpg" width="360" height="240" alt="Pixel-art cast of You Bored?: a panicking toilet, a pudding, a duck on a bike, a push-up guy and a spaghetti monster on a disco stage." loading="lazy">
+      </div>
+      <span class="bubble" aria-hidden="true">You bored? Not for long.</span>
+      <img class="mascot" id="mascot" src="assets/img/mascot.webp" width="191" height="300" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img class="hb" src="assets/img/heybot.webp" width="440" height="220" alt="HeyBot Gaming" loading="lazy">
+      <p>You Bored? is made by HeyBot Gaming. Hand-drawn pixels, zero chill.</p>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="support.html">Support &amp; FAQ</a></li>
+        <li><a href="privacy.html">Privacy policy</a></li>
+        <li><a data-mail href="mailto:heybotgaming@gmail.com">heybotgaming@gmail.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <ul>
+        <li><a data-yt href="https://www.youtube.com/@HeyBotcha" target="_blank" rel="noopener">YouTube: @HeyBotcha</a></li>
+        <li><a href="#play">Play Snack Snatch</a></li>
+        <li><a href="#games">See all 79 games</a></li>
+      </ul>
+    </div>
+    <div class="legal">
+      <p>&copy; 2026 HeyBot Gaming. All rights reserved.</p>
+      <p>Apple and App Store are trademarks of Apple Inc. Google Play is a trademark of Google LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/snack.js" defer></script>
+</body>
+</html>

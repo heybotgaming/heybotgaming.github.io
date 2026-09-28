@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Game Over (404) | You Bored?</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0B2E">
+<!-- GitHub Pages serves this file for any missing path, at any depth, so it is self-contained:
+     inline styles, and the only external references are root paths (the site lives at the root of username.github.io). -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<style>
+@font-face{font-family:'Press Start 2P';font-display:swap;src:url(/assets/fonts/press-start-2p.ttf) format('truetype')}
+@font-face{font-family:'Silkscreen';font-weight:700;font-display:swap;src:url(/assets/fonts/silkscreen-700.ttf) format('truetype')}
+:root{--navy:#0B0B2E;--cyan:#22E0F0;--mag:#FF2FB9;--acid:#F5E63D;--white:#FFF4FB;--red:#FF5A6E}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(120% 70% at 50% 0,#241E7A,#0B0B2E 60%,#070720);color:var(--white);font:16px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;display:grid;place-items:center;text-align:center;padding:24px 16px;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 3px)}
+.s{position:fixed;width:2px;height:2px;background:#fff;opacity:.6;animation:tw 2s steps(2) infinite}
+@keyframes tw{50%{opacity:.1}}
+.big{font:400 clamp(56px,18vw,130px)/1 'Press Start 2P',monospace;color:var(--mag);text-shadow:6px 6px 0 #05051A,12px 12px 0 rgba(34,224,240,.5);margin:0;animation:drop .7s cubic-bezier(.3,1.5,.5,1) both}
+.go{display:inline-block;font:400 clamp(18px,5vw,32px)/1.2 'Press Start 2P',monospace;color:var(--red);border:4px solid var(--red);padding:16px 18px 13px;margin:26px 0 18px;background:#05051A;animation:drop .7s .15s cubic-bezier(.3,1.5,.5,1) both}
+p{margin:0 auto 10px;max-width:30em;color:#DCD8FF}
+.cnt{font:400 clamp(13px,3.6vw,16px)/1.6 'Press Start 2P',monospace;color:var(--acid);margin:18px 0}
+.cnt b{color:var(--white)}
+a.btn{display:inline-block;margin:6px;padding:14px 20px 10px;font:700 15px/1 Silkscreen,monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--cyan);border-bottom:6px solid #0E8C98}
+a.btn.m{background:var(--mag);border-bottom-color:#8E1467}
+a.btn:hover{transform:translateY(-2px)}
+a.btn:focus-visible{outline:3px solid var(--acid);outline-offset:3px}
+@keyframes drop{from{transform:translateY(-120px) scale(1.4);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <p class="big" aria-hidden="true">404</p>
+  <h1 class="go">GAME OVER</h1>
+  <p>This page doesn't exist. It was probably eaten by the void, or burnt in the toaster.</p>
+  <p class="cnt" aria-live="polite">CONTINUE? <b id="n">9</b></p>
+  <a class="btn m" href="/" id="home">Continue</a>
+  <a class="btn" href="/#games">See all 79 games</a>
+</main>
+<script>
+(function(){
+  for(var i=0;i<50;i++){var s=document.createElement('i');s.className='s';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=(Math.random()*2)+'s';document.body.appendChild(s);}
+  var n=9,el=document.getElementById('n');
+  var t=setInterval(function(){n--;el.textContent=n;if(n<=0){clearInterval(t);location.href='/';}},1000);
+  document.addEventListener('pointerdown',function(){clearInterval(t);el.textContent='!';},{once:true});
+})();
+</script>
+</body>
+</html>
