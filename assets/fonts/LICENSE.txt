@@ -1,0 +1,5 @@
+Fonts in this folder are licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org).
+
+press-start-2p.ttf  Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name "Press Start 2P".
+silkscreen-400.ttf  Copyright 2001 The Silkscreen Project Authors (https://github.com/googlefonts/silkscreen)
+silkscreen-700.ttf  Copyright 2001 The Silkscreen Project Authors (https://github.com/googlefonts/silkscreen)
